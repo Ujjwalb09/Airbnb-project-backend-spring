@@ -28,10 +28,10 @@ public class HotelManagementRepository {
             return "FAILURE";
 
         if(hotelDB.containsKey(hotel.getHotelName())) //checking if hotel already exist in database
-            return "HOTEL ALREADY ADDED";
+            return "FAILURE";
 
         hotelDB.put(hotel.getHotelName(), hotel);
-        return "HOTEL ADDED SUCCESSFULLY";
+        return "SUCCESS";
     }
 
     public Integer addUser(User user)
