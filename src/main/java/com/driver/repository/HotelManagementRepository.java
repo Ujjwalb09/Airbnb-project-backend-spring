@@ -71,7 +71,15 @@ public class HotelManagementRepository {
 
     public int getBookings(Integer aadharCard)
     {
-        return userbookingDB.get(aadharCard);
+        int bookings = 0;
+        for(String bookingId : bookingDB.keySet()){
+            Booking booking = bookingDB.get(bookingId);
+            if(booking.getBookingAadharCard() == aadharCard){
+                bookings++;
+            }
+        }
+        return bookings;
+
     }
 
     public Hotel updateFacilities(List<Facility> newFacilities, String hotelName)
